@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>  
+     <input type="text" id="FirstNumber">   
+    </form>
+    <br>
+    <select id="operators">
+        <option value="+">+</option>
+        <option value="*">*</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+    </select>
+    <br>
+    <form>  
+        <input type="text"  id="SecondNumber">   
+    </form>
+
+    <button id="clickMe">Click Me</button>
+    <p id="answer"></p>
+
+    <script type="text/javascript">
+    let firstNumber = document.getElementById("FirstNumber");
+    let secondNumber = document.getElementById("SecondNumber");
+    let clickMe = document.getElementById("clickMe");
+    let displayAnswer = document.getElementById("answer");
+    let operators = document.getElementById("operators");
+
+    clickMe.onclick = function() {
+        let number1 = parseInt(firstNumber.value);
+        let number2 = parseInt(secondNumber.value);
+        let operator = operators.value
+        if (operator == "+") {
+        let answer = number1 + number2
+        displayAnswer.innerHTML = answer
+        }
+        if (operator == "*") {
+        let answer = number1 * number2
+        displayAnswer.innerHTML = answer
+        }
+        if (operator == "-") {
+        let answer = number1 - number2
+        displayAnswer.innerHTML = answer
+        }
+        if (operator == "/") {
+        let answer = number1 / number2
+        displayAnswer.innerHTML = answer
+        }
+    }
+
+
+    
+    </script>
+
+
+</body>
+</html>

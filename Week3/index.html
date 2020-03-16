@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button style="position: relative; left:0px; top:0px;" id="clickMeButton">Click me</button>
+    <br />
+    <button id="dontClickMeButton">Reset</button>
+
+    <script type="text/javascript">
+        let count = 0;
+
+        let clickMeButton = document.getElementById("clickMeButton");
+        let dontClickMeButton = document.getElementById("dontClickMeButton");
+        
+        console.log(clickMeButton);
+        console.log(dontClickMeButton);
+
+        clickMeButton.onclick = onButtonClick;
+
+        dontClickMeButton.onclick = function() {
+            console.log("Button clicked");
+            count = 0
+            clickMeButton.innerHTML = count;
+            clickMeButton.style.left = "0px";
+            clickMeButton.style.top = "0px";
+
+
+        }
+        function onButtonClick() {
+            console.log("Button clicked");
+            clickMeButton.style.backgroundColor = "red";
+            count = count+1;
+            clickMeButton.innerHTML = count;
+            let newPosX = Math.random()*700;
+            let newPosY = Math.random()*700;
+            clickMeButton.style.left = newPosX+"px";
+            clickMeButton.style.top = newPosY+"px";
+            console.log(newPosX+","+newPosY);
+        }
+    
+    </script>
+</body>
+</html>
