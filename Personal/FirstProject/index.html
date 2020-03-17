@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p class="standard">hello</p>
+    <p class="standard">welcome to my webpage, the webpage.</p>
+    <p class="standard">view at your own discretion.</p>
+    <br/>
+    <p class="standard">...it's a bit dark in here, no?</p>
+    <p class="standard">maybe you could turn on the light for me</p>
+    <button class="prompt" id="whatLight">>what light?</button>
+
+    <script type="text/javascript">
+    let whatLight = document.getElementById("whatLight");
+    let newStandard = document.getElementsByTagName("p");
+
+    whatLight.onclick = function() {
+        console.log("button clicked");
+
+
+    }
+    
+    
+    </script>
+
+</body>
+</html>
