@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="NewItem">  
+    </form>
+    <button id="clickMe">Add</button>
+    <p id="List"></p>
+
+    <script type="text/javascript">
+        let newItem = document.getElementById("NewItem");
+        let clickMe = document.getElementById("clickMe");
+        let displayList = document.getElementById("List");
+        var listItem = "";
+
+    
+        clickMe.onclick = function() {
+            let NewItem = newItem.value;
+            listItem = listItem + NewItem + "<br>";
+            displayList.innerHTML = listItem;
+            
+            
+            
+            }
+
+
+
+        
+    
+    
+        
+        </script>
+    
+</body>
+</html>
