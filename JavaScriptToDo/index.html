@@ -16,6 +16,7 @@
     <select id="tasks">
     </select>
     <button id="clickMe2">Remove</button>
+    <button id="clickMe3">Clear All</button>
 
     <script type="text/javascript">
         let newItem = document.getElementById("NewItem");
@@ -29,6 +30,7 @@
     
         clickMe.onclick = function() {
             let NewItem = newItem.value;
+            newItem.value = "";
             listArr.push(NewItem);
             listItem = "";
             let opt = document.createElement('option');
@@ -51,7 +53,7 @@
         clickMe2.onclick = function() {
             let taskNum = parseInt(sel.value);
             listArr.splice(taskNum, 1);
-            var listLen = listArr.length;
+            let listLen = listArr.length;
             listItem = "";
             sel.removeChild( sel.options[taskNum] ); 
             
@@ -66,6 +68,19 @@
             displayList.innerHTML = listItem;
             counter = counter - 1;
 
+        }
+        clickMe3.onclick = function() {
+            let listLen = listArr.length;
+            console.log(listLen);
+            for (i = 0; i < listLen; i++) {
+                sel.removeChild( sel.options[0] ); // For some reason, the sel.options values are NOT stored as an array. So when the first option [0] is deleted, the 2nd option moves down to the [0] position. so, don't use i, use 0.
+                listArr.splice(i, 1);               
+            }
+            listItem = "";
+            displayList.innerHTML = listItem;
+            counter = 0;
+
+            
         }
 
 
