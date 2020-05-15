@@ -7,26 +7,66 @@
 </head>
 <body>
     <form>
-        <input type="text" id="NewItem">  
+        <input type="text" id="NewItem">Enter Task</input>  
     </form>
     <button id="clickMe">Add</button>
+    <br>
+    
     <p id="List"></p>
+    <select id="tasks">
+    </select>
+    <button id="clickMe2">Remove</button>
 
     <script type="text/javascript">
         let newItem = document.getElementById("NewItem");
         let clickMe = document.getElementById("clickMe");
+        let clickMe2 = document.getElementById("clickMe2")
         let displayList = document.getElementById("List");
         var listItem = "";
-
+        var listArr = [];
+        var counter = 0;
+        var sel = document.getElementById("tasks");
     
         clickMe.onclick = function() {
             let NewItem = newItem.value;
-            listItem = listItem + NewItem + "<br>";
+            listArr.push(NewItem);
+            listItem = "";
+            let opt = document.createElement('option');
+            opt.appendChild( document.createTextNode((counter + 1)));
+            opt.value = (counter);
+            counter = counter + 1;
+            sel.appendChild(opt);
+            var listLen = listArr.length;
+            
+            for (i = 0; i < listLen; i++) {
+            listItem = listItem + (i + 1) + ". " + listArr[i] + "<br>";
+            
+
+            }
             displayList.innerHTML = listItem;
             
             
             
             }
+        clickMe2.onclick = function() {
+            let taskNum = parseInt(sel.value);
+            listArr.splice(taskNum, 1);
+            var listLen = listArr.length;
+            listItem = "";
+            sel.removeChild( sel.options[taskNum] ); 
+            
+            for (i = 0; i < listLen; i++) {
+            
+            listItem = listItem + (i + 1) + ". " + listArr[i] + "<br>";
+            sel.options[i] = document.createElement('option');
+            sel.options[i].value = i;
+            sel.options[i].appendChild( document.createTextNode((i + 1)));
+            }
+            
+            displayList.innerHTML = listItem;
+            counter = counter - 1;
+
+        }
 
 
 
