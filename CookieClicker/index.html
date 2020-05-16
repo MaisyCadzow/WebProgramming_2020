@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Document</title>
+</head>
+<body class="container">
+    <div class="cookie">
+        <img alt="cookie"; src="160212_em_cookieday.jpg"; id="cookie">
+        <div class="upgrades">
+            <p>Upgrades:</p>
+            <button id="buyCursor"; class="button">Cursors: 0 <br> Cost: 10 </button>
+            <button class="button">Grandmas: 0 <br> Cost: 100</button>
+        </div>
+    </div>
+    <p id="totalCookies">cookies: 0</p>
+    <p id="errorMsg"></p>
+
+
+    <script type="text/javascript">
+        let cookie = document.getElementById("cookie");
+        let cookies = document.getElementById("totalCookies");
+        let buyCursor = document.getElementById("buyCursor");
+        let errorMsg = document.getElementById("errorMsg");
+        var cookiesTotal = 0;
+        var cookiesPlus = 1;
+        var cursors;
+        var cursorsTotal = 0;
+        var cookiesPerSec = 0;
+
+        cookie.onclick = function() {
+            cookiesTotal = cookiesTotal + cookiesPlus;
+            cookies.innerHTML = "cookies: " + cookiesTotal;
+            
+
+        }
+
+        buyCursor.onclick = function() {
+            if (cookiesTotal >= 10) {
+            cursorsTotal = cursorsTotal + 1;
+            cookiesTotal = cookiesTotal - 10;
+            buyCursor.innerHTML = "Cursors: " + cursorsTotal + "<br> Cost: 10"
+            }
+            else {
+                errorMsg.innerHTML = "not enough cookies!";
+                setTimeout(cannotPurchase, 3000);
+            }
+        }
+
+        cursors = function() {
+            let cursorCookies = cursorsTotal * 1;
+            cookiesTotal = cookiesTotal + cursorCookies;
+            cookies.innerHTML = "cookies: " + cookiesTotal;
+
+        }
+        var myCursors = setInterval(cursors, 1000);
+
+        var cannotPurchase = function() {
+            errorMsg.innerHTML = "";
+
+        }
+
+    
+    
+    
+    </script>
+</body>
+</html>

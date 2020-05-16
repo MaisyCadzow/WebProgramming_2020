@@ -1,0 +1,30 @@
+.container {
+    margin: 0px;
+    display: flex;
+    background-color: #FFC6F7;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+
+}
+
+.cookie {
+    display: flex;
+    margin: 0px;
+    flex-direction: row;
+    width: 70vh;
+}
+
+.upgrades {
+    display: flex;
+    margin: 0px;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.button {
+    margin: 2px;
+    width: 80px;
+    border-color: black;
+}
