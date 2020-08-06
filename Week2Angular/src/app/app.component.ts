@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Week2Angular';
+  total: number = 0;
+
+  onCounted(value: number) {
+    this.total += value;
+    
+  }
 }
